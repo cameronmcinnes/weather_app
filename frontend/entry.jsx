@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Weather from './weather';
+import ForecastContainer from './forecast_container';
 
 const Root = () => {
-  return <Weather />;
+  return <ForecastContainer />;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

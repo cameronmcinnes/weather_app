@@ -1,0 +1,32 @@
+body {
+  background-color: #eee;
+}
+
+h1 {
+  font-size: 6em;
+}
+
+.forecast-container {
+  display: flex;
+  margin: auto;
+  background-color: #cec;
+}
+
+.forecast-day {
+  font-size: 1.2em;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: .8em;
+  font-weight: 600;
+  background-color: #ece;
+  margin: 20px;
+  width: 135px;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #ece;
+}

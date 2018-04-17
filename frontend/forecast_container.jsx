@@ -2,7 +2,7 @@ import React from 'react';
 
 import ForecastItem from './forecast_item';
 
-class Weather extends React.Component {
+class ForecastContainer extends React.Component {
   constructor(props) {
     super();
     this.state = {
@@ -17,6 +17,9 @@ class Weather extends React.Component {
     const apiKey = `&client_secret=${API_KEY}`;
 
     const url = `http://api.aerisapi.com/forecasts/11101?client_id=${clientId}${apiKey}`
+
+    // could also use jQuery for AJAX requests but since there's only
+    // one simple request vanilla JS will do
 
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = () => {
@@ -67,18 +70,23 @@ class Weather extends React.Component {
     let componentBody;
 
     if (this.state.weather) {
-      componentBody = <div> { this.parseResp() } </div>
+      componentBody = <div className='forecast-container'>
+        { this.parseResp() }
+      </div>
     } else {
       componentBody = <div className='loading'>loading</div>;
     }
 
+    const buttonText = this.state.celsius ? 'show farenheit' : 'show celsius'
+
     return (
-      <div>
+      <section>
+        <h1>Weather Forecast</h1>
         { componentBody }
-        <button onClick={ this.toggleTempScale }>click me</button>
-      </div>
+        <button onClick={ this.toggleTempScale }>{buttonText}</button>
+      </section>
     );
   }
 }
 
-export default Weather;
+export default ForecastContainer;
