@@ -19565,7 +19565,7 @@ var ForecastContainer = function (_React$Component) {
       // ENV variable API_KEY to webpack and keep api key secret on client
       var clientId = 'JkftORcsiuyjbRwpj4YKf';
       var apiKey = '&client_secret=' + "tfe24XUtqBc2KylBkaQOQeXIrQDUUjQyN44CRiC6";
-      var url = 'https://api.aerisapi.com/forecasts/11101?client_id=' + clientId + apiKey;
+      var url = 'http://api.aerisapi.com/forecasts/11101?client_id=' + clientId + apiKey;
 
       // could also use jQuery for AJAX requests but since there's only
       // one simple request vanilla JS will do
