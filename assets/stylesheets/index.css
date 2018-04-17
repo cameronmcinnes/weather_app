@@ -10,10 +10,12 @@ h1 {
   display: flex;
   margin: auto;
   background-color: #cec;
+  padding-bottom: 40px;
 }
 
 .forecast-day {
   font-size: 1.2em;
+  padding: 10px 30px;
 }
 
 button {
@@ -28,5 +30,12 @@ button {
 
 button:hover {
   color: #fff;
-  background-color: #ece;
+  background-color: #000;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
 }

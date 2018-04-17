@@ -1,4 +1,4 @@
-html, body, h1, p {
+html, body, h1, p, figure {
   margin: 0;
   border: 0;
   padding: 0;
@@ -29,8 +29,10 @@ button {
   border: 0;
   padding: 0;
   cursor: pointer;
+  outline: none;
 }
 
 button:focus {
   box-shadow: none;
+  outline: none;
 }

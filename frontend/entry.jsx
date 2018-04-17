@@ -7,6 +7,7 @@ const Root = () => {
   return <ForecastContainer />;
 }
 
+// add dom content loaded callback to ensure page fully loaded 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root/>, document.getElementById('root'));
 });

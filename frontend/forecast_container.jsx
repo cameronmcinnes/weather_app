@@ -34,7 +34,7 @@ class ForecastContainer extends React.Component {
     xmlhttp.send();
   }
 
-  parseResp() {
+  parseWeather() {
     return Object.values(this.state.weather).map( (day, idx) => {
       let high, low;
 
@@ -49,7 +49,7 @@ class ForecastContainer extends React.Component {
       return (
         <ForecastItem
           key={idx}
-          date={day.dateTimeISO.slice(0, 10)}
+          date={new Date (day.dateTimeISO)}
           high={high}
           low={low}
           iconSrc={`assets/icons/${day.icon}`}
@@ -71,10 +71,10 @@ class ForecastContainer extends React.Component {
 
     if (this.state.weather) {
       componentBody = <div className='forecast-container'>
-        { this.parseResp() }
+        { this.parseWeather() }
       </div>
     } else {
-      componentBody = <div className='loading'>loading</div>;
+      componentBody = <div className='loading'><span>loading</span></div>;
     }
 
     const buttonText = this.state.celsius ? 'show farenheit' : 'show celsius'
