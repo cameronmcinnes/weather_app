@@ -9,21 +9,27 @@ class ForecastContainer extends React.Component {
       weather: null,
       celsius: true
     };
+
+    // binding toggleTempScale because it will be invoked function
+    // style as a callback
     this.toggleTempScale = this.toggleTempScale.bind(this);
   }
 
   componentDidMount() {
+    // using 'dotenv' npm package to set up gitignore .env file and add
+    // ENV variable API_KEY to webpack and keep api key secret on client
     const clientId = 'JkftORcsiuyjbRwpj4YKf'
     const apiKey = `&client_secret=${API_KEY}`;
-
     const url = `http://api.aerisapi.com/forecasts/11101?client_id=${clientId}${apiKey}`
 
     // could also use jQuery for AJAX requests but since there's only
     // one simple request vanilla JS will do
-
     let xmlhttp = new XMLHttpRequest();
+    
+    // update components state to store data on succesful response
     xmlhttp.onreadystatechange = () => {
-      if (xmlhttp.status === 200 && xmlhttp.readyState === XMLHttpRequest.DONE) {
+      if (xmlhttp.status === 200 &&
+        xmlhttp.readyState === XMLHttpRequest.DONE) {
         const data = JSON.parse(xmlhttp.responseText)
         const forecast = data.response[0].periods;
         this.setState({weather: forecast});
@@ -70,14 +76,17 @@ class ForecastContainer extends React.Component {
     let componentBody;
 
     if (this.state.weather) {
-      componentBody = <div className='forecast-container'>
-        { this.parseWeather() }
-      </div>
+      componentBody = (
+        <div className='forecast-container'>
+          { this.parseWeather() }
+        </div>
+      );
     } else {
       componentBody = <div className='loading'><span>loading</span></div>;
     }
 
-    const buttonText = this.state.celsius ? 'show farenheit' : 'show celsius'
+    const buttonText = this.state.celsius ?
+      'show farenheit' : 'show celsius'
 
     return (
       <section>
