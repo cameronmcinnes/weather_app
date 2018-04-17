@@ -1,11 +1,14 @@
-const path = require('path')
+const path = require('path');
+const webpack = require('webpack');
+const myEnv = require('dotenv').config();
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/weather.jsx",
+  entry: "./frontend/entry.jsx",
   output: {
     path: path.resolve(__dirname),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/assets/'
   },
   module: {
     loaders: [
@@ -19,6 +22,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      API_KEY: JSON.stringify(myEnv.parsed.API_KEY),
+    }),
+  ],
   resolve: {
     extensions: [".js", ".jsx", "*" ]
   },
