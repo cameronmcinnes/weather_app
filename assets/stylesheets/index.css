@@ -6,16 +6,31 @@ h1 {
   font-size: 6em;
 }
 
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .forecast-container {
   display: flex;
   margin: auto;
+  flex-direction: column;
   background-color: #cec;
   padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 840px) {
+    .forecast-container {
+        flex-direction: row;
+    }
 }
 
 .forecast-day {
   font-size: 1.2em;
   padding: 10px 30px;
+  width: 180px;
 }
 
 button {
@@ -38,4 +53,9 @@ button:hover {
   justify-content: center;
   align-items: center;
   font-size: 4em;
+}
+
+footer h4 {
+  color: #888;
+  text-align: center;
 }
